@@ -83,6 +83,8 @@ alias gst='git status -sb'
 
 alias vi='/usr/local/bin/vim'
 
+alias -s sh='vi'
+
 ## zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
         source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
