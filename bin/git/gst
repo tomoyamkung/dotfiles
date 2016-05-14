@@ -1,0 +1,22 @@
+#!/bin/sh
+
+case $1 in
+    '-a' )
+        git add `git status -sb | grep -v "^#" | awk '{print $2}' | grep -v "^$" | awk "NR==$2"`
+        ;;
+    '-c' )
+        git checkout `git status -sb | grep -v "^#" | awk '{print $2}' | grep -v "^$" | awk "NR==$2"`
+        ;;
+    '-d' )
+        git diff `git status -sb | grep -v "^#" | awk '{print $2}' | grep -v "^$" | awk "NR==$2"`
+        ;;
+    '-n' )
+        git status -sb | grep -v "^$" | grep -v "^##" | cat -n | sed -e 's/^[ ]\+//g'
+        ;;
+    '-v' )
+        vi `git status -sb | grep -v "^#" | awk '{print $2}' | grep -v "^$" | awk "NR==$2"`
+        ;;
+    * )
+        git status -sb
+esac
+
