@@ -85,6 +85,8 @@ typeset -A abbreviations
 abbreviations=(
   # Git
   "gst" "git status -sb"
+  # Other
+  "pd" "pushd"
 )
 
 magic-abbrev-expand() {
