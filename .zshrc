@@ -87,6 +87,7 @@ abbreviations=(
   "gst" "git status -sb"
   # Other
   "pd" "pushd"
+  "la" "ll -a"
 )
 
 magic-abbrev-expand() {
