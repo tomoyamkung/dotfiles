@@ -108,7 +108,17 @@ bindkey "^x " no-magic-abbrev-expand
 
 ## zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-        source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+
+## ~/bin
+if [ -d ~/bin ]; then
+    for d in `ls ~/bin`
+    do
+        # echo ~/bin/$d
+        PATH=$PATH:~/bin/$d
+    done
 fi
 
 
