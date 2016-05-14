@@ -78,8 +78,31 @@ function rprompt-git-current-branch {
 }
 RPROMPT='`rprompt-git-current-branch`'
 
-# gst: git status -sb
-alias gst='git status -sb'
+## 略語展開
+setopt extended_glob
+
+typeset -A abbreviations
+abbreviations=(
+  # Git
+  "gst" "git status -sb"
+)
+
+magic-abbrev-expand() {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[_a-zA-Z0-9]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    zle self-insert
+}
+
+no-magic-abbrev-expand() {
+  LBUFFER+=' '
+}
+
+zle -N magic-abbrev-expand
+zle -N no-magic-abbrev-expand
+bindkey " " magic-abbrev-expand
+bindkey "^x " no-magic-abbrev-expand
+
 
 ## zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
