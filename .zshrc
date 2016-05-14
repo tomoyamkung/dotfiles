@@ -88,6 +88,7 @@ abbreviations=(
   # Other
   "pd" "pushd"
   "la" "ll -a"
+  "less" "less -XF"
 )
 
 magic-abbrev-expand() {
