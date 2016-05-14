@@ -81,23 +81,9 @@ RPROMPT='`rprompt-git-current-branch`'
 # gst: git status -sb
 alias gst='git status -sb'
 
-alias vi='/usr/local/bin/vim'
-
-alias -s sh='vi'
-
 ## zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
         source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-
-## MVN_HOME
-MVN_HOME='/opt/maven'
-export MVN_HOME
-PATH=${PATH}:${MVN_HOME}/bin
-
-## TOMCAT
-export CATALINA_OPTS='-Xmx3060M -Xms1024M'
-
-export PATH
 
