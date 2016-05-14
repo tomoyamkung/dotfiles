@@ -83,8 +83,6 @@ setopt extended_glob
 
 typeset -A abbreviations
 abbreviations=(
-  # Git
-  "gst" "git status -sb"
   # Other
   "pd" "pushd"
   "la" "ll -a"
