@@ -68,12 +68,6 @@ if [ -d ~/.zsh ]; then
 fi
 
 
-## zsh-syntax-highlighting
-#if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-#    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#fi
-
-
 ## ~/bin
 if [ -d ~/bin ]; then
     for d in `ls ~/bin`
