@@ -2,7 +2,7 @@
 
 # zplug をインストールする
 # https://github.com/zplug/zplug
-curl -sL get.zplug.sh | zsh
+#curl -sL get.zplug.sh | zsh
 
 # カレントディレクトリにある . ファイルに対してホームディレクトリにシンボリックリンクを作成する
 for f in .??*
@@ -14,5 +14,5 @@ do
 done
 
 # カレントディレクトリにある bin ディレクトリに対してホームディレクトリにシンボリックリンクを作成する
-ln -snfv `pwd`/bin ~/bin
+ln -snfv `pwd`/bin ~/
 
