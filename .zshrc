@@ -78,8 +78,8 @@ if [ -d ~/bin ]; then
 fi
 
 ## etc/env/.zshrc
-if [ -f etc/env/.zshrc ]; then
-    source etc/env/.zshrc
+if [ -f ~/dotfiles/etc/env/.zshrc ]; then
+    source ~/dotfiles/etc/env/.zshrc
 fi
 
 
