@@ -77,4 +77,9 @@ if [ -d ~/bin ]; then
     done
 fi
 
+## etc/env/.zshrc
+if [ -f etc/env/.zshrc ]; then
+    source etc/env/.zshrc
+fi
+
 
