@@ -2,6 +2,9 @@
 # zsh/020_zplug.zsh
 #
 
+# 設定ファイルが存在しなければ何もしない
+[ ! -f ~/.zplug/init.zsh ] && exit 1
+
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-history-substring-search"
