@@ -1,3 +1,6 @@
+#
+# zsh/020_zplug.zsh
+#
 
 source ~/.zplug/init.zsh
 
