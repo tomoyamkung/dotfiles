@@ -1,7 +1,11 @@
+#
+# zsh/010_git.zsh
+#
 
 # zsh で Git のカレントブランチを右プロンプトに表示する。
 # コミット済みのきれいな状態だと緑色、未コミットの編集がある場合は赤色で表示する。
 # http://qiita.com/hash/items/325cffc755fc1ff91928
+
 setopt prompt_subst
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 function rprompt-git-current-branch {
