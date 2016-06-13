@@ -7,19 +7,20 @@ cd `dirname $0`; cd ../../
 [ -f ~/.zshrc ] && rm -f ~/.zshrc
 
 # dotfiles/zshrc を ~/.zshrc としてコピーする
-#cp zshrc ~/.zshrc
+cp zshrc ~/.zshrc
 
 # dotfiles/zsh/*.zsh が存在すれば ~/.zshrc に追記する
 if [ -d zsh ]; then
     for F in `ls zsh`
     do
-        cat zsh/$F
+        cat zsh/$F >> ~/.zshrc
     done
 fi
 
 # dotfiles/etc/env/zshrc が存在すれば ~/.zshrc に追記する
 if [ -f etc/env/zshrc ]; then
-    cat etc/env/zshrc
+    cat etc/env/zshrc >> ~/.zshrc
 fi
 
 # ~/.zshrc を読み込む
+source ~/.zshrc
