@@ -22,5 +22,3 @@ if [ -f etc/env/zshrc ]; then
     cat etc/env/zshrc >> ~/.zshrc
 fi
 
-# ~/.zshrc を読み込む
-source ~/.zshrc
