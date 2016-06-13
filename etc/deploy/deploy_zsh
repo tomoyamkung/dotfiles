@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# dotfiles/ 直下に移動する
+cd `dirname $0`; cd ../../
+
+# ~/.zshrc が存在する場合は削除する
+[ -f ~/.zshrc ] && rm -f ~/.zshrc
+
+# dotfiles/zshrc を ~/.zshrc としてコピーする
+cp zshrc ~/.zshrc
+
+# dotfiles/zsh/*.zsh が存在すれば ~/.zshrc に追記する
+if [ -d zsh ]; then
+    for F in `ls zsh`
+    do
+        cat zsh/$F >> ~/.zshrc
+    done
+fi
+
+# dotfiles/etc/env/zshrc が存在すれば ~/.zshrc に追記する
+if [ -f etc/env/zshrc ]; then
+    cat etc/env/zshrc >> ~/.zshrc
+fi
+

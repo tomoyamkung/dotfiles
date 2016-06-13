@@ -26,7 +26,6 @@ bindkey "^N" history-beginning-search-forward-end
 
 ## extended_glob
 setopt extended_glob
-
 typeset -A abbreviations
 abbreviations=(
   # Other
@@ -34,38 +33,28 @@ abbreviations=(
   "la" "ll -a"
   "less" "less -XF"
 )
-
 magic-abbrev-expand() {
     local MATCH
     LBUFFER=${LBUFFER%%(#m)[_a-zA-Z0-9]#}
     LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
     zle self-insert
 }
-
 no-magic-abbrev-expand() {
   LBUFFER+=' '
 }
-
 zle -N magic-abbrev-expand
 zle -N no-magic-abbrev-expand
 bindkey " " magic-abbrev-expand
 bindkey "^x " no-magic-abbrev-expand
 
 
+## autoload
 autoload -U compinit
 compinit
 
+
+## alias
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"'
-
-
-## tools
-if [ -d ~/.zsh ]; then
-    for f in `ls ~/.zsh/[0-9]*.zsh`
-    do
-        # echo $f
-        source $f
-    done
-fi
 
 
 ## ~/bin
@@ -76,10 +65,4 @@ if [ -d ~/bin ]; then
         PATH=$PATH:~/bin/$d
     done
 fi
-
-## etc/env/.zshrc
-if [ -f ~/dotfiles/etc/env/.zshrc ]; then
-    source ~/dotfiles/etc/env/.zshrc
-fi
-
 
