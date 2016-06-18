@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# dotfiles/ 直下に移動する
+cd `dirname $0`; cd ../../
+
+# ~/bin が存在しない場合は作成する
+[ -d ~/bin ] || mkdir ~/bin
+
+# dotfiles/bin/ に存在するスクリプトについて ~/bin/ にシンボリックリンクを作成する
+for F in `find bin -type f`
+do
+    ln -s $PWD/$F $HOME"/bin/"`basename $F`
+done
+
