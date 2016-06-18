@@ -4,15 +4,9 @@
 # https://github.com/zplug/zplug
 #curl -sL get.zplug.sh | zsh
 
-# カレントディレクトリにある . ファイルに対してホームディレクトリにシンボリックリンクを作成する
-for f in .??*
+# dotfiles/etc/deploy にあるスクリプトを実行する
+DEPLOY_SCRIPT_DIR=etc/deploy
+for F in `ls $DEPLOY_SCRIPT_DIR`
 do
-    [[ "$f" == ".git" ]] && continue
-    [[ "$f" == ".DS_Store" ]] && continue
-
-    ln -snfv `pwd`/"$f" ~/"$f"
+    sh $DEPLOY_SCRIPT_DIR/$F
 done
-
-# カレントディレクトリにある bin ディレクトリに対してホームディレクトリにシンボリックリンクを作成する
-ln -snfv `pwd`/bin ~/
-
