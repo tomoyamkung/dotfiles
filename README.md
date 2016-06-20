@@ -7,6 +7,13 @@ $ sh install.sh
 $ source ~/.zshrc
 ```
 
+## 2016/06/20
+
+### dotfiles/etc/env/zshrc も ~/.zshrc に反映するように対応
+
+dotfiles/etc/env/zshrc が存在していた場合に、その内容を ~/.zshrc にも反映するように対応。
+dotfiles/etc/env/zshrc は環境ごとの際を記述するスクリプト。
+
 ## 2016/06/19
 
 ### etc/deploy/ ディレクトリ以下にあるスクリプトのデプロイを自動実行するように対応
