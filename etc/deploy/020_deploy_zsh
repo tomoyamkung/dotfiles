@@ -19,6 +19,7 @@ fi
 
 # dotfiles/etc/env/zshrc が存在すれば ~/.zshrc に追記する
 if [ -f etc/env/zshrc ]; then
+    echo "" >> ~/.zshrc  ## 空行を挿入するための `echo`
     cat etc/env/zshrc >> ~/.zshrc
 fi
 
