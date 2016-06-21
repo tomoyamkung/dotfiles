@@ -6,9 +6,9 @@ cd `dirname $0`; cd ../../
 # ~/bin が存在しない場合は作成する
 [ -d ~/bin ] || mkdir ~/bin
 
-# dotfiles/bin/ に存在するスクリプトについて ~/bin/ にシンボリックリンクを作成する
+# dotfiles/bin/ に存在するスクリプトについて ~/bin/ にシンボリックリンクを（強制的に）作成する
 for F in `find bin -type f`
 do
-    ln -s $PWD/$F $HOME"/bin/"`basename $F`
+    ln -sf $PWD/$F $HOME"/bin/"`basename $F`
 done
 
