@@ -7,6 +7,24 @@ $ sh install.sh
 $ source ~/.zshrc
 ```
 
+## 2016/06/23
+
+### [git] ブランチ移動を行うスクリプトを追加
+
+以下の記事に乗っていたスクリプトを dotfiles/bin/git/gch として作成。
+
+  - [gitのブランチ移動（checkout）を楽にするやつ - Qiita](http://qiita.com/amichang/items/5f7e715801771214430e)
+
+`gch` を実行することで起動。
+
+```sh
+[vagrant@localhost dotfiles]# gch
+Branch list:
+1) develop
+2) master
+Select branch > 
+```
+
 ## 2016/06/21
 
 ### ~/bin/ へのシンボリックリンク作成に -f オプションを付けるように修正
