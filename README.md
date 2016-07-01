@@ -9,6 +9,18 @@ $ source ~/.zshrc
 
 ## 2016/07/01
 
+### [git] Beautiful diffs を利用するための設定を組み込み
+
+Git のバージョン 2.9.0 で実装された Beautiful diffs を利用するための PATH と設定を組み込んだ。
+PATH の追加は以下のスクリプトで行う。
+
+  - dotfiles/zsh_011_git_diff_highlight.zsh
+
+Beautiful diffs の設定は以下のファイルで行う。
+
+  - dotfiles/gitconfig
+
+
 ### [git] git diff で末尾に ^M が表示されないよう設定を追加
 
 dotfiles/gitconfig に以下の設定を追加。
