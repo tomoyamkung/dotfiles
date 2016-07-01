@@ -3,5 +3,12 @@
   ba = branch -a
 
 [core]
- whitespace = cr-at-eol 
+  whitespace = cr-at-eol 
 
+[diff]
+  compactionHeuristic = true
+
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
