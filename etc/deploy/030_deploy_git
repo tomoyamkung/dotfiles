@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# dotfiles/ 直下に移動する
+cd `dirname $0`; cd ../../
+
+# ~/.gitconfig が存在しない場合は作成する
+[ -f ~/.gitconfig ] || touch ~/.gitconfig
+
+# dotfiles/gitconfig を ~/.gitconfig に追記する
+echo "" >> ~/.gitconfig  ## 空行を挿入するための `echo`
+cat gitconfig >> ~/.gitconfig
+

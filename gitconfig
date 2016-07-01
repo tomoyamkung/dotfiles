@@ -1,0 +1,4 @@
+[alias]
+  nffmerge = merge --no-ff
+  ba = branch -a
+
