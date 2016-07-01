@@ -9,6 +9,16 @@ $ source ~/.zshrc
 
 ## 2016/07/01
 
+### [git] git diff で末尾に ^M が表示されないよう設定を追加
+
+dotfiles/gitconfig に以下の設定を追加。
+
+```
+[core]
+  whitespace = cr-at-eol
+```
+
+
 ### [git] ~/.gitconfig を作成するスクリプトを追加
 
 プロジェクトに紐付かない共通で使える Git の設定ファイルをホームディレクトリに作成するスクリプトを作成。
