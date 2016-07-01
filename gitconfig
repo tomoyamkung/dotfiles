@@ -2,3 +2,6 @@
   nffmerge = merge --no-ff
   ba = branch -a
 
+[core]
+ whitespace = cr-at-eol 
+
