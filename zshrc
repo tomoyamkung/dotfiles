@@ -11,8 +11,12 @@ SPROMPT="%r is correct? [n,y,a,e]: "
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data
+setopt HIST_IGNORE_DUPS  # 前と重複する行は記録しない
+setopt HIST_IGNORE_ALL_DUPS  # 履歴中の重複行をファイル記録前に無くす
+setopt HIST_FIND_NO_DUPS  # 履歴検索中、(連続してなくとも)重複を飛ばす
+setopt HIST_REDUCE_BLANKS  # 余分な空白は詰めて記録
+setopt HIST_NO_STORE  # histroy コマンドは記録しない
+setopt SHARE_HISTORY  # share command history data
 
 ## Keybind configuration
 bindkey -e
