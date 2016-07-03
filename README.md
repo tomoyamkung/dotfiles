@@ -7,6 +7,19 @@ $ sh install.sh
 $ source ~/.zshrc
 ```
 
+## 2016/07/03
+
+### [zsh] 履歴に関する設定を追加
+
+zshrc に以下の設定を追加。
+
+  - setopt HIST_IGNORE_DUPS  # 前と重複する行は記録しない
+  - setopt HIST_IGNORE_ALL_DUPS  # 履歴中の重複行をファイル記録前に無くす
+  - setopt HIST_FIND_NO_DUPS  # 履歴検索中、(連続してなくとも)重複を飛ばす
+  - setopt HIST_REDUCE_BLANKS  # 余分な空白は詰めて記録
+  - setopt HIST_NO_STORE  # histroyコマンドは記録しない
+
+
 ## 2016/07/01
 
 ### [git] Beautiful diffs を利用するための設定を組み込み
