@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# 環境に fzf がインストールされていなければ終了
+which fzf > /dev/null 2>&1
+[ `echo $?` -eq 1 ] && exit 1
+
+# ~/.zshrc に設定が存在すれば終了
+grep -q "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" ~/.zshrc
+[ `echo $?` -eq 1 ] && exit 2
+
+# 環境に fzf はインストールされているが ~/.zshrc に設定が欠けているので追記
+echo "" >> ~/.zshrc  ## 空行を挿入するための `echo`
+echo 'source ~/.fzf.zsh' >> ~/.zshrc
+
