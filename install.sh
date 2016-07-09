@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# dotfiles 直下に移動する
+cd `dirname $0`
+
 # zplug をインストールする
 # https://github.com/zplug/zplug
 #curl -sL get.zplug.sh | zsh
