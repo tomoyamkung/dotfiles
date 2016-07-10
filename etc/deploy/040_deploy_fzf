@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/installed_command.sh
+
+# 環境に fzf がインストールされていなければ終了
+installed_command fzf || exit 1
+
+# ~/.zshrc に設定が存在すれば終了
+grep -q "source ~/.fzf.zsh" ~/.zshrc
+[ `echo $?` -eq 0 ] && exit 2
+
+# 環境に fzf はインストールされているが ~/.zshrc に設定が欠けているので追記
+echo "" >> ~/.zshrc  ## 空行を挿入するための `echo`
+cat << EOS >> ~/.zshrc
+#
+# etc/deploy/040_deploy_fzf
+#
+source ~/.fzf.zsh
+EOS
