@@ -58,7 +58,6 @@ compinit
 
 
 ## alias
-alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"'
 
 
 ## ~/bin
