@@ -13,10 +13,3 @@ for F in `ls $INSTALL_SCRIPT_DIR`
 do
     sh $INSTALL_SCRIPT_DIR/$F
 done
-
-# dotfiles/etc/deploy にあるスクリプトを実行する
-DEPLOY_SCRIPT_DIR=etc/deploy
-for F in `ls $DEPLOY_SCRIPT_DIR`
-do
-    sh $DEPLOY_SCRIPT_DIR/$F
-done
