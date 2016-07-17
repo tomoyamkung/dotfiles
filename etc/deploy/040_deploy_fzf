@@ -4,10 +4,10 @@
 cd `dirname $0`; cd ../../
 
 # ライブラリスクリプトを読み込む
-source etc/lib/installed_command.sh
+source etc/lib/exist_dir.sh
 
-# 環境に fzf がインストールされていなければ終了
-installed_command fzf || exit 1
+# 環境に ~/.fzf ディレクトリが存在しなければ終了
+exist_dir ~/.fzf || exit 1
 
 # ~/.zshrc に設定が存在すれば終了
 grep -q "source ~/.fzf.zsh" ~/.zshrc
