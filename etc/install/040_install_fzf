@@ -4,10 +4,10 @@
 cd `dirname $0`; cd ../../
 
 # ライブラリスクリプトを読み込む
-source etc/lib/installed_command.sh
+source etc/lib/exist_dir.sh
 
-# 環境に fzf がインストールされていれば終了
-installed_command fzf && exit 1
+# 環境に ~/.fzf ディレクトリが存在しなければ終了
+exist_dir ~/.fzf && exit 1
 
 # Github からプロジェクトを `clone` する
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
