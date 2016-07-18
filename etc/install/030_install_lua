@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/installed_by_yum.sh
+
+# 環境に `yum` を使って lua がインストールされていなければインストールする
+installed_by_yum lua || sudo yum -y install lua 
+
+# 環境に `yum` を使って lua-devel がインストールされていなければインストールする
+installed_by_yum lua-devel || sudo yum -y install lua-devel
