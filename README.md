@@ -10,6 +10,11 @@ $ source ~/.zshrc
 
 ## 2016/07/18
 
+### [fzf, zsh] 移動コマンド fd を追加
+
+`fzf` を使った移動コマンド `fd` を実装。
+
+
 ### [zsh] gd コマンドを削除
 
 dotfile/zshrc ファイルから `gd` コマンドを削除。
