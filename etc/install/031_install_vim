@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/exist_dir.sh
+
+# 環境に /usr/local/vim ディレクトリが存在していれば終了
+exist_dir /usr/local/vim && exit 1
+
+# Vim をインストールする
+cd /usr/local
+sudo /usr/local/bin/git clone https://github.com/vim/vim.git
+cd vim
+sudo ./configure --enable-multibyte --with-features=huge --enable-cscope --disable-selinux --prefix=/usr/local --enable-luainterp=yes --with-lua-prefix=/usr
+sudo make
+sudo make install
+
