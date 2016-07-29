@@ -8,5 +8,5 @@ cd `dirname $0`
 DEPLOY_SCRIPT_DIR=etc/deploy
 for F in `ls $DEPLOY_SCRIPT_DIR`
 do
-    sh $DEPLOY_SCRIPT_DIR/$F
+    [ -f $DEPLOY_SCRIPT_DIR/$F ] && sh $DEPLOY_SCRIPT_DIR/$F
 done
