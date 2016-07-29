@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# dotfiles/ 直下に移動する
+cd `dirname $0`; cd ../../
+
+# ~/.vimrc が存在する場合は削除する
+[ -f ~/.vimrc ] && rm -f ~/.vimrc
+
+# dotfiles/vimrc を ~/.vimrc としてコピーする
+cp vimrc ~/.vimrc
+
