@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/exist_dir.sh
+
+# 環境に ~/.vim/dein ディレクトリが存在しなければ終了
+exist_dir ~/.vim/dein || exit 1
+
+# ~/.vim/dein に dein.toml をコピー
+cp etc/deploy/dein/dein.toml ~/.vim/dein/
+
+exit 0

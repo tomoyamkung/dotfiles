@@ -1,0 +1,5 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+repo = 'Shougo/neosnippet'
+repo = 'Shougo/neosnippet-snippets'
+repo = 'tomasr/molokai'
