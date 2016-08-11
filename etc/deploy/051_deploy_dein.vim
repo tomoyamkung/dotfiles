@@ -5,9 +5,10 @@ cd `dirname $0`; cd ../../
 
 # ライブラリスクリプトを読み込む
 source etc/lib/exist_dir.sh
+source etc/env/path
 
 # 環境に ~/.vim/dein ディレクトリが存在しなければ終了
-exist_dir ~/.vim/dein || exit 1
+exist_dir $DEIN_PATH || exit 1
 
 # ~/.vimrc に設定が存在すれば終了
 grep -q "dein Scripts" ~/.vimrc
