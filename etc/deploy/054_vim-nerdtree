@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/env/path
+
+# ~/.vimrc に設定が存在すれば終了
+grep -q "scrooloose/nerdtree" $VIMRC
+[ `echo $?` -eq 0 ] && exit 2
+
+# ~/.vimrc に scrooloose/nerdtree の設定が欠けているので追記
+cat << EOS >> $VIMRC
+
+" scrooloose/nerdtree
+let g:nerdtree_tabs_open_on_console_startup=1
+let NERDTreeShowHidden = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+EOS
+
