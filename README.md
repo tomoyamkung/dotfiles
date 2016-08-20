@@ -8,6 +8,16 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/08/21
+
+### [Vim] dein.vim を使った NERDTree プラグインのインストールに対応
+
+Vim の以下のプラグインをインストールする仕組みを実装。
+
+  - scrooloose/nerdtree
+  - jistr/vim-nerdtree-tabs
+
+
 ## 2016/08/20
 
 ### [Vim] dein.vim を使った vim-airline プラグインのインストールに対応

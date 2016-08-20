@@ -10,3 +10,10 @@ depends = ['vim-airline-themes']
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo    = 'scrooloose/nerdtree'
+depends = ['vim-nerdtree-tabs']
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
