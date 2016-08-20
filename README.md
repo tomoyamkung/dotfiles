@@ -8,6 +8,16 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/08/20
+
+### [Vim] dein.vim を使った vim-airline プラグインのインストールに対応
+
+Vim の以下のプラグインをインストールする仕組みを実装。
+
+  - vim-airline/vim-airline
+  - vim-airline/vim-airline-themes
+
+
 ## 2016/08/11
 
 ### [Vim] dein.vim を使ったプラグインのインストールに対応

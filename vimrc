@@ -8,6 +8,10 @@ set number
 set showmatch
 set matchtime=2
 syntax on
+set encoding=utf-8
+set t_Co=256
+set paste
+
 "set expandtab
 set tabstop=4 
 set shiftwidth=4

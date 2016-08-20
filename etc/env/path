@@ -1,3 +1,4 @@
 #!/bin/bash
 
 DEIN_PATH=~/.vim/dein
+VIMRC=~/.vimrc

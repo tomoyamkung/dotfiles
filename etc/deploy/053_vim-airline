@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/env/path
+
+# ~/.vimrc に設定が存在すれば終了
+grep -q "vim-airline/vim-airline" $VIMRC
+[ `echo $?` -eq 0 ] && exit 2
+
+# ~/.vimrc に vim-airline の設定が欠けているので追記
+cat << EOS >> $VIMRC
+
+" vim-airline/vim-airline
+set laststatus=2
+EOS
+
