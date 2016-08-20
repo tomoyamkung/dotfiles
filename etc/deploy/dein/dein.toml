@@ -3,3 +3,10 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/neosnippet'
 repo = 'Shougo/neosnippet-snippets'
 repo = 'tomasr/molokai'
+
+[[plugins]]
+repo    = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes']
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
