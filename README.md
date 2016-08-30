@@ -8,6 +8,19 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/08/30
+
+### [Vim] dein.vim を使った Unite.vim プラグインのインストールに対応
+
+Vim の以下のプラグインをインストールする仕組みを実装。
+
+  - Shougo/unite.vim
+
+また、以下のファイルの書式に誤りがあったのを修正。
+
+  - dotfiles/etc/deploy/dein/dein.toml
+
+
 ## 2016/08/21
 
 ### [Vim] dein.vim を使った NERDTree プラグインのインストールに対応
