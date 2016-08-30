@@ -10,6 +10,13 @@ $ source ~/.zshrc
 
 ## 2016/08/30
 
+### [Vim] dein.vim を使った content_filetype.vim プラグインのインストールに対応
+
+Vim の以下のプラグインをインストールする仕組みを実装。
+
+  - Shougo/content_filetype.vim
+
+
 ### [Vim] dein.vim を使った Unite.vim プラグインのインストールに対応
 
 Vim の以下のプラグインをインストールする仕組みを実装。
