@@ -19,6 +19,9 @@ repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 
 [[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
 repo = 'tomasr/molokai'
 
 [[plugins]]
