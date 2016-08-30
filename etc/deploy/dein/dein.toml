@@ -1,18 +1,35 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
-repo = 'Shougo/neosnippet'
+
+[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+depends = ['neosnippet-snippets']
+on_i = 1
+on_ft = ['snippet']
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+
+[[plugins]]
 repo = 'tomasr/molokai'
 
 [[plugins]]
-repo    = 'vim-airline/vim-airline'
+repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo    = 'scrooloose/nerdtree'
+repo = 'scrooloose/nerdtree'
 depends = ['vim-nerdtree-tabs']
 
 [[plugins]]
