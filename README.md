@@ -8,6 +8,16 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/08/31
+
+### [Vim] dein.vim を使った neocomplete.vim プラグインのインストールに対応
+
+Vim の以下のプラグインをインストールする仕組みを実装。
+
+  - Shougo/neocomplete.vim
+  - Shougo/vimproc.vim
+
+
 ## 2016/08/30
 
 ### [Vim] dein.vim を使った content_filetype.vim プラグインのインストールに対応
