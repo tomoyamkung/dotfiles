@@ -10,7 +10,7 @@ set matchtime=2
 syntax on
 set encoding=utf-8
 set t_Co=256
-set paste
+"set paste " これを有効にしていると neocomplete が効かなくなるので無効にしている
 
 "set expandtab
 set tabstop=4 
