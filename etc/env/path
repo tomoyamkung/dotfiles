@@ -1,4 +1,5 @@
 #!/bin/bash
 
 DEIN_PATH=~/.vim/dein
+CTAGS_DEFAULT_FILE=~/.ctags
 VIMRC=~/.vimrc
