@@ -8,6 +8,19 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/09/01
+
+### [Vim] ctags のインストールと、ctags に関連する Vim プラグインのインストールに対応
+
+以下を実装。
+
+  - システムに ctags がインストールされていない場合は `yum` を使ってインストールする
+  - ctags に関連する以下の Vim プラグインを dein.vim を使ってインストールする
+    - tagbar
+	- vim-tags
+  - ctags のデフォルト設定ファイルを ~/.ctags として設置する
+
+
 ## 2016/08/31
 
 ### [Vim] dein.vim を使った neocomplete.vim プラグインのインストールに対応
