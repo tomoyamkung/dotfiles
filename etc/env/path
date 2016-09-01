@@ -1,5 +1,6 @@
 #!/bin/bash
 
-DEIN_PATH=~/.vim/dein
 CTAGS_DEFAULT_FILE=~/.ctags
+DEIN_PATH=~/.vim/dein
+FZF_PATH=~/.fzf
 VIMRC=~/.vimrc

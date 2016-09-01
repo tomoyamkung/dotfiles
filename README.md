@@ -10,6 +10,16 @@ $ source ~/.zshrc
 
 ## 2016/09/01
 
+### [Vim] FZF に関する設定を vimrc に追加
+
+システムに FZF がインストールされている場合に vimrc に以下を追記する処理を実装。
+
+```
+" junegunn/fzf
+set rtp+=~/.fzf
+```
+
+
 ### [Vim] ctags のインストールと、ctags に関連する Vim プラグインのインストールに対応
 
 以下を実装。
