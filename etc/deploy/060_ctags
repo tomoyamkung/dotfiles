@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/installed_by_yum.sh
+source etc/env/path
+
+# 環境に `yum` を使って ctags がインストールされていなければ終了する
+installed_by_yum ctags || exit 1
+
+# ~/ に ctags をコピーして .ctags にリネームする
+cp -f etc/deploy/ctags/ctags $CTAGS_DEFAULT_FILE
+
+exit 0

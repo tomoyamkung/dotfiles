@@ -55,3 +55,9 @@ depends = ['vim-nerdtree-tabs']
 
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+
+[[plugins]]
+repo = 'szw/vim-tags'

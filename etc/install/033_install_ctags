@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/installed_by_yum.sh
+
+# 環境に `yum` を使って ctags がインストールされていなければインストールする
+installed_by_yum ctags || sudo yum -y install ctags 
+
