@@ -3,4 +3,5 @@
 CTAGS_DEFAULT_FILE=~/.ctags
 DEIN_PATH=~/.vim/dein
 FZF_PATH=~/.fzf
+TMUX_DEFAULT_FILE=~/.tmux.conf
 VIMRC=~/.vimrc

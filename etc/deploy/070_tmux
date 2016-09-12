@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/installed_command.sh
+source etc/env/path
+
+# 環境に `tmux` がインストールされていなければ終了する
+installed_command tmux || exit 1
+
+# ~/ に設定ファイルをコピーする
+cp -f etc/deploy/tmux/tmux.conf $TMUX_DEFAULT_FILE
+
+exit 0
