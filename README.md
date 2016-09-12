@@ -8,6 +8,18 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/09/12
+
+### [tmux] tmux のインストールに対応
+
+以下を実装。
+
+  - システムに tmux がインストールされていない場合はソースコードからインストールする
+  - tmux の設定ファイルを ~/.tmux.conf に設置する
+  - ~/.tmux.conf として設置する元ファイルは以下のファイルとする
+    - dotfiles/etc/deploy/tmux/tmux.conf
+
+
 ## 2016/09/01
 
 ### [Vim] FZF に関する設定を vimrc に追加
