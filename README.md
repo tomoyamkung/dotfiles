@@ -10,6 +10,14 @@ $ source ~/.zshrc
 
 ## 2016/09/12
 
+### [zsh] zsh のプラグイン enhancd を導入
+
+以下を実装。
+
+  - zplug で管理する以下のプラグインリストに [b4b4r07/enhancd: A next\-generation cd command with an interactive filter](https://github.com/b4b4r07/enhancd) を追加した
+    - dotfiles/etc/deploy/zplug/list
+
+
 ### [zsh] zsh のプラグインマネージャ zplug を導入
 
 以下を実装。
