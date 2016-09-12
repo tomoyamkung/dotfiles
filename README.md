@@ -10,6 +10,16 @@ $ source ~/.zshrc
 
 ## 2016/09/12
 
+### [zsh] zsh のプラグインマネージャ zplug を導入
+
+以下を実装。
+
+  - システムに zplug がインストールされていない場合は GitHub からプロジェクトを `clone` する
+  - zplug で管理するプラグインのリストを以下とする
+    - dotfiles/etc/deploy/zplug/list
+  - zsh-syntax-highlighting を上記リストに設定済み
+
+
 ### [tmux] tmux のインストールに対応
 
 以下を実装。
