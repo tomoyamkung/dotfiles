@@ -6,5 +6,7 @@ FZF_PATH=~/.fzf
 TMUX_DEFAULT_FILE=~/.tmux.conf
 VIMRC=~/.vimrc
 
-# zplug
+# zsh
+ZSHRC=~/.zshrc
+# zplug のインストールディレクトリ
 ZPLUG_INSTALL_DIR=~/.zplug
