@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/installed_command.sh
+
+# 環境に `tmux` コマンドが存在する場合は終了する
+installed_command.sh tmux && exit 1
+
+# tmux のインストールに必要なライブラリを `yum` を使ってインストールする
+sudo yum -y install gcc kernel-devel make ncurses-devel
+
+# libevent をインストールする
+# `yum` で利用できるバージョンが 1.x 系のため 2.x 系をソースコードからインストールする
+cd /tmp
+curl -OL https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
+tar -xvzf libevent-2.0.21-stable.tar.gz
+cd libevent-2.0.21-stable
+./configure --prefix=/usr/local
+make
+sudo make install
+
+# tmux をソースコードからインストールする
+cd /tmp
+curl -OL https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
+tar -xvzf tmux-2.2.tar.gz
+cd tmux-2.2
+LDFLAGS="-L/usr/local/lib -Wl,-rpath=/usr/local/lib" ./configure --prefix=/usr/local
+make
+sudo make install
+
+
