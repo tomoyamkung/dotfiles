@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/lib/exist_dir.sh
+source etc/env/path
+
+# 環境に ~/.zplug ディレクトリが存在する場合は終了する
+exist_dir $ZPLUG_INSTALL_DIR && exit 1
+
+# ホームディレクトリにプロジェクトを `clone` する
+git clone https://github.com/b4b4r07/zplug $ZPLUG_INSTALL_DIR
+
+exit 0

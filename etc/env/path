@@ -5,3 +5,8 @@ DEIN_PATH=~/.vim/dein
 FZF_PATH=~/.fzf
 TMUX_DEFAULT_FILE=~/.tmux.conf
 VIMRC=~/.vimrc
+
+# zsh
+ZSHRC=~/.zshrc
+# zplug のインストールディレクトリ
+ZPLUG_INSTALL_DIR=~/.zplug

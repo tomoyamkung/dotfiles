@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+source etc/env/path
+source etc/lib/exist_dir.sh
+
+# ディレクトリ ~/.zplug が存在していなければ終了
+exist_dir $ZPLUG_INSTALL_DIR || exit 1
+
+# ~/.zshrc に zplug の設定が欠けているので追記
+cat << EOS >> $ZSHRC
+
+#
+# deploy/080_zplug
+#
+source ~/.zplug/init.zsh
+
+EOS
+
+cat etc/deploy/zplug/list >> $ZSHRC
+
+cat << EOS >> $ZSHRC
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+# Then, source plugins and add commands to 'PATH'
+zplug load --verbose
+EOS
