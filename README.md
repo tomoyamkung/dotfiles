@@ -10,6 +10,16 @@ $ source ~/.zshrc
 
 ## 2016/09/12
 
+### [zsh] zsh のプラグイン cli-finder を導入
+
+以下を実装。
+
+  - zplug で管理する以下のプラグインリストに [b4b4r07/cli\-finder: A command\-line finder with fzf](https://github.com/b4b4r07/cli-finder) を追加した
+    - dotfiles/etc/deploy/zplug/list
+  - cli-finder の出力に `tree` が使われるため、システムにインストールされていない場合は `yum` を使ってインストールするスクリプトも実装
+    - dotfiles/etc/install/070_install_tree
+
+
 ### [zsh] zsh のプラグイン enhancd を導入
 
 以下を実装。
