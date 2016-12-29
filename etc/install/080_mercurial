@@ -10,15 +10,18 @@ source etc/lib/installed_command.sh
 installed_command hg && exit 1 
 
 # `wget` を使って Mercurial の RPM をダウンロードする
-# RPM はテンポラリディレクトリにダウンロードし、インストール後に削除する
+# RPM はテンポラリディレクトリにダウンロードする
 temp_dir=~/.hg_install
-mercurial_rpm_url=https://www.mercurial-scm.org/release/centos6/RPMS/x86_64/mercurial-3.9.2-1.x86_64.rpm
-
 mkdir "$temp_dir"
+
+mercurial_rpm_url=https://www.mercurial-scm.org/release/centos6/RPMS/x86_64/mercurial-3.9.2-1.x86_64.rpm
 wget "$mercurial_rpm_url" -P "$temp_dir"
 
-mercurial_rpm=mercurial-3.9.2-1.x86_64.rpm  # ここは正規表現で切り出したい
+# URL から RPM ファイル名を切り出して `rpm` でインストールする
+mercurial_rpm=`echo "$mercurial_rpm_url" | awk -F'/' '{print $8}'`
 sudo rpm -ivh "$temp_dir/$mercurial_rpm"
 
+# テンポラリディレクトリごと削除する
 rm -fr "$temp_dir"
+
 exit 0
