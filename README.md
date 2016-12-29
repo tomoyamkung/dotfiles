@@ -8,6 +8,19 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/12/29
+
+### [Mercurial] Mercurial のインストールに対応
+
+以下を実装。
+
+  - システムに Mercurial がインストールされている場合は処理を中止する
+  - Mercurial は RPM を使ってインストールする
+  - バージョンは 3.9.2
+  - RPM は `wget` を使って取得しインストール後は削除する
+  - Mercurial の設定ファイル（~/.hgrc など）は作成しない
+
+
 ## 2016/09/12
 
 ### [zsh] zsh のプラグイン cli-finder を導入
