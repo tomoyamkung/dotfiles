@@ -8,6 +8,24 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2016/12/30
+
+### [Mercurial] hg コマンドの補助スクリプトを作成
+
+以下のスクリプトを作成。
+
+  - dotfiles/etc/install/mercurial/hst.sh
+
+Mercurial の `hg` コマンドを補助するスクリプトで、オプションによって以下の通りに動作する。
+
+  - a オプション: 指定のファイルを追加する（`hg add /path/to/file`）
+  - d オプション: 指定のファイルの差分をとる（`hg diff /path/to/file`）
+  - r オプション: 指定のファイルを戻す（`hg revert /path/to/file`）
+  - オプションなし: リポジトリの状態を確認する（`hg status`）
+
+このスクリプトは以下のパスでシンボリックリンクとして作成される。
+
+
 ## 2016/12/29
 
 ### [Mercurial] Mercurial のインストールに対応
