@@ -8,6 +8,17 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/01/08
+
+### installed_command.sh を改修
+
+コマンドがシステムにインストールされているかを確認する以下の関数を改修した。
+
+  - dotfiles/etc/lib/installed_command.sh を改修
+
+`which` を使ってコマンドの存在確認を行っていたが、`type` を使うように変更。
+
+
 ## 2016/12/30
 
 ### [Mercurial] hg コマンドの補助スクリプトを作成
