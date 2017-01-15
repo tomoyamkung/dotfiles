@@ -1,5 +1,8 @@
 #!/bin/bash -eu
 
+# ライブラリスクリプトを読み込む
+. ~/dotfiles/etc/lib/dry_run.sh
+
 function usage() {
   cat <<EOF 1>&2
 Description:
@@ -18,13 +21,12 @@ EOF
   exit 1
 }
 
-dryrun=FALSE
 while getopts hx OPT
 do
   case "$OPT" in
     h) usage
        ;;
-    x) dryrun=TRUE
+    x) enable_dryrun
        ;;
     \?) usage
         ;;
@@ -37,7 +39,7 @@ branch=$(hg branches | fzf --exit-0 --select-1 --ansi)
 [ $(echo ${branch} | wc -c) -eq 1 ] && exit 2
 
 branch=$(echo ${branch} | awk '{print $1}')
-if [ "TRUE" = ${dryrun} ] ; then
+if [ ! -z ${dryrun} ]; then
   echo "hg update ${branch}"
 else
   echo ${branch} | xargs hg update
