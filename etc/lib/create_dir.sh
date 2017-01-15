@@ -15,8 +15,9 @@
 
 function create_dir() {
   if [ -d "$1" ]; then
-    exit 1  # ディレクトリが存在していたので何もしない
+    return 1  # ディレクトリが存在していたので何もしない
   fi
 
   mkdir -p "$1"
+  return 0
 }
