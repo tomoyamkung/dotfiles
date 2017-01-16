@@ -32,5 +32,5 @@ dryrun=
 
 # dry-run を有効にする関数
 function enable_dryrun() {
-  dryrun=TRUE
+  dryrun=echo
 }
