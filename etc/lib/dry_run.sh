@@ -21,6 +21,14 @@ Usage:
     echo "execute"
   fi
   ----
+
+  変数 ${dryrun} には "echo" が格納される。
+  以下のようにコーディングすることで dry-run が有効になった際には ls は実行されず echo が実行されるようになる。
+
+  ----
+  ${dryrun} ls
+  ----
+
 EOF
   exit 1
 }
