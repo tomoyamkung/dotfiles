@@ -8,6 +8,26 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/01/17
+
+### [Mercurial] `hg update` コマンドの補助スクリプトを作成
+
+以下のスクリプトを作成。
+
+  - dotfiles/etc/install/mercurial/hup.sh
+
+Mercurial の `hg update` コマンドを補助するスクリプトで、ブランチを移動する用途での使用を想定している。
+移動したいブランチはオプションで指定せず FZF を使った絞り込みで指定するようになっている。
+
+オプションは以下の通り。
+
+  - x オプション: dry-run モードで実行する
+
+このスクリプトは以下のパスでシンボリックリンクとして作成される。
+
+  - ~/bin/hup
+
+
 ## 2017/01/08
 
 ### installed_command.sh を改修
