@@ -1,11 +1,47 @@
 #!/bin/bash -eu
 
+function usage() {
+  cat <<EOF 1>&2
+Description:
+  $(basename ${0}) は dein.vim を使って Vim で flake8 による文法チェックを行うプラグインをインストールするスクリプトである。
+  $(basename ${0}) によりインストールされる Vim プラグインは以下の通り。
+
+  [[plugins]]
+  repo = 'scrooloose/syntastic'
+
+  $(basename ${0}) は以下の条件を満たす場合のみ実行する。
+    1. システムに Python がインストールされていること
+    2. システムに Vim がインストールされていること
+    3. ~/.vimrc にプラグインの設定がされていないこと
+
+Usage:
+  $(basename ${0})
+
+Options:
+  -h        print this
+  -x        dry run
+EOF
+  exit 1
+}
+
 # dotfiles 直下に移動する 
 cd `dirname $0`; cd ../../
 
 # ライブラリスクリプトを読み込む
 . etc/env/path
 . etc/lib/dry_run.sh
+
+while getopts hx OPT
+do
+  case "$OPT" in
+    h) usage
+	   ;;
+    x) enable_dryrun
+       ;;
+    \?) usage
+        ;;
+  esac
+done
 
 echo "test"
 exit 0
