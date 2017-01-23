@@ -50,12 +50,12 @@ done
 # システムに `vim` がインストールされていない場合は終了する
 [[ `installed_command vim` -eq 0 ]] || exit 3
 
+# ~/.vimrc に設定が存在すれば終了する
+grep -q "syntastic_python_checkers" $VIMRC
+[ `echo $?` -eq 0 ] && exit 4
 
 echo "test"
 exit 0
-# ~/.vimrc に設定が存在すれば終了
-grep -q "Shougo/neocomplete.vim" $VIMRC
-[ `echo $?` -eq 0 ] && exit 2
 
 # ~/.vimrc に Shougo/neocomplete.vim の設定が欠けているので追記
 cat << EOS >> $VIMRC
