@@ -1,0 +1,73 @@
+#!/bin/bash -eu
+
+function usage() {
+  cat <<EOF 1>&2
+Description:
+  $(basename ${0}) は dein.vim を使って Vim で flake8 による文法チェックを行うプラグインをインストールするスクリプトである。
+  $(basename ${0}) によりインストールされる Vim プラグインは以下の通り。
+
+  [[plugins]]
+  repo = 'scrooloose/syntastic'
+
+  $(basename ${0}) は以下の条件を満たす場合のみ実行する。
+    1. システムに Python がインストールされていること
+    2. システムに Vim がインストールされていること
+    3. ~/.vimrc にプラグインの設定がされていないこと
+
+Usage:
+  sh $(basename ${0})
+
+Options:
+  -h  print this
+  -x  dry run
+EOF
+  exit 1
+}
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+. etc/env/path
+. etc/lib/dry_run.sh
+. etc/lib/installed_command.sh
+
+while getopts hx OPT
+do
+  case "$OPT" in
+    h) usage
+	   ;;
+    x) enable_dryrun
+       ;;
+    \?) usage
+        ;;
+  esac
+done
+
+# システムに `python` がインストールされていない場合は終了する
+[[ `installed_command python` -eq 0 ]] || exit 2
+
+# システムに `vim` がインストールされていない場合は終了する
+[[ `installed_command vim` -eq 0 ]] || exit 3
+
+# ~/.vimrc に設定が存在すれば終了する
+grep -q "syntastic_python_checkers" $VIMRC
+[ `echo $?` -eq 0 ] && exit 4
+
+# ~/.vimrc にプラグインの設定が欠けているので追記
+if [[ ! -z ${dryrun} ]]; then
+  cat << EOS
+
+" scrooloose/syntastic
+let g:syntastic_python_checkers = ["flake8"]
+EOS
+else
+  cat << EOS >> $VIMRC
+
+" scrooloose/syntastic"
+let g:syntastic_python_checkers = ["flake8"]
+EOS
+fi
+exit 0
+
+
