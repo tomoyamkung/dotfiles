@@ -15,11 +15,11 @@ Description:
     3. ~/.vimrc にプラグインの設定がされていないこと
 
 Usage:
-  $(basename ${0})
+  sh $(basename ${0})
 
 Options:
-  -h        print this
-  -x        dry run
+  -h  print this
+  -x  dry run
 EOF
   exit 1
 }
@@ -54,22 +54,20 @@ done
 grep -q "syntastic_python_checkers" $VIMRC
 [ `echo $?` -eq 0 ] && exit 4
 
-echo "test"
+# ~/.vimrc にプラグインの設定が欠けているので追記
+if [[ ! -z ${dryrun} ]]; then
+  cat << EOS
+
+" scrooloose/syntastic
+let g:syntastic_python_checkers = ["flake8"]
+EOS
+else
+  cat << EOS >> $VIMRC
+
+" scrooloose/syntastic"
+let g:syntastic_python_checkers = ["flake8"]
+EOS
+fi
 exit 0
 
-# ~/.vimrc に Shougo/neocomplete.vim の設定が欠けているので追記
-cat << EOS >> $VIMRC
 
-" Shougo/neocomplete.vim
-" Disable AutoComplPop
-let g:acp_enableAtStartUp = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_ignore_case = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_underbar_completion = 1
-let g:neocomplete#enable_camel_case_completion = 1
-let g:neocomplete#auto_completion_start_length = 2
-" Set minimum syntax keyword length
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-EOS
