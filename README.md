@@ -8,6 +8,19 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/01/23
+
+### [Vim] dein.vim を使った syntastic プラグインのインストールに対応
+
+Vim の以下のプラグインをインストールする仕組みを実装。
+
+  - scrooloose/syntastic
+
+実装内容は以下を参照のこと。
+
+  - [Flake8 の Vim プラグイン組み込みを実装する · Issue #43 · tomoyamkung/dotfiles](https://github.com/tomoyamkung/dotfiles/issues/43)
+
+
 ## 2017/01/17
 
 ### [Mercurial] `hg update` コマンドの補助スクリプトを作成
