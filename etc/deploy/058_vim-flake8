@@ -30,6 +30,7 @@ cd `dirname $0`; cd ../../
 # ライブラリスクリプトを読み込む
 . etc/env/path
 . etc/lib/dry_run.sh
+. etc/lib/installed_command.sh
 
 while getopts hx OPT
 do
@@ -42,6 +43,9 @@ do
         ;;
   esac
 done
+
+# システムに `python` がインストールされていない場合は終了する
+[[ `installed_command python` -eq 0 ]] || exit 2
 
 echo "test"
 exit 0
