@@ -1,0 +1,31 @@
+#!/bin/bash -eu
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+. etc/env/path
+. etc/lib/dry_run.sh
+
+echo "test"
+exit 0
+# ~/.vimrc に設定が存在すれば終了
+grep -q "Shougo/neocomplete.vim" $VIMRC
+[ `echo $?` -eq 0 ] && exit 2
+
+# ~/.vimrc に Shougo/neocomplete.vim の設定が欠けているので追記
+cat << EOS >> $VIMRC
+
+" Shougo/neocomplete.vim
+" Disable AutoComplPop
+let g:acp_enableAtStartUp = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_ignore_case = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_underbar_completion = 1
+let g:neocomplete#enable_camel_case_completion = 1
+let g:neocomplete#auto_completion_start_length = 2
+" Set minimum syntax keyword length
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+EOS
