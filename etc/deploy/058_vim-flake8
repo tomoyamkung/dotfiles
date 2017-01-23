@@ -47,6 +47,10 @@ done
 # システムに `python` がインストールされていない場合は終了する
 [[ `installed_command python` -eq 0 ]] || exit 2
 
+# システムに `vim` がインストールされていない場合は終了する
+[[ `installed_command vim` -eq 0 ]] || exit 3
+
+
 echo "test"
 exit 0
 # ~/.vimrc に設定が存在すれば終了
