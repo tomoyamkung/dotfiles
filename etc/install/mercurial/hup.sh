@@ -39,9 +39,5 @@ branch=$(hg branches | fzf --exit-0 --select-1 --ansi)
 [ $(echo ${branch} | wc -c) -eq 1 ] && exit 2
 
 branch=$(echo ${branch} | awk '{print $1}')
-if [ ! -z ${dryrun} ]; then
-  echo "hg update ${branch}"
-else
-  echo ${branch} | xargs hg update
-fi
+${dryrun} hg update ${branch}
 exit 0
