@@ -24,7 +24,7 @@ set nowritebackup
 set nobackup
 set noswapfile
 " 不可視文字の可視化
-set list
+"set list
 " 長いテキストの折り返し
 set wrap
 " ESCを二回押すことでハイライトを消す
