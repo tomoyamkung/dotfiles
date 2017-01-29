@@ -49,4 +49,9 @@ fi
 
 # `hg update` を実行する
 ${dryrun} hg push ${command_option} ${branch_name}
+if [[ $? -eq 0 ]]; then
+  exit 0
+fi
+# 失敗した場合は `--new-branch` を付与して再度実行する
+hg push --new-branch ${command_option} ${branch_name}
 exit 0
