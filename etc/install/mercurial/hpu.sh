@@ -22,11 +22,11 @@ EOF
   exit 1
 }
 
-command_option=-b  # `hg update` のオプション。デフォルトは -b
+b_option=-b  # `hg update` のオプション。デフォルトは -b
 while getopts ahx OPT
 do
   case "$OPT" in
-    a) command_option=  # -a オプションが指定されたのでブランクを設定する
+    a) b_option=  # -a オプションが指定されたのでブランクを設定する
 	   ;;
     h) usage
        ;;
@@ -39,7 +39,7 @@ done
 
 branch_name=  # ブランチ名を格納する。-a オプションが指定されない場合は後続処理で絞り込む
 # -a オプションが指定された場合はブランチを絞り込まない
-if [[ ! -z ${command_option} ]]; then
+if [[ ! -z ${b_option} ]]; then
   # FZF を使ってブランチを絞り込む
   branch_name=$(hg branches | fzf --exit-0 --select-1 --ansi)
   # 存在しないブランチを指定された場合は処理を終了する
@@ -49,4 +49,9 @@ fi
 
 # `hg update` を実行する
 ${dryrun} hg push ${command_option} ${branch_name}
+if [[ $? -eq 0 ]]; then
+  exit 0
+fi
+# 失敗した場合は `--new-branch` を付与して再度実行する
+hg push --new-branch ${command_option} ${branch_name}
 exit 0
