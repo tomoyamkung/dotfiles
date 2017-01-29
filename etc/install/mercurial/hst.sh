@@ -1,25 +1,27 @@
 #!/bin/bash -eu
-#
-# @(#) hst.sh ver.1.0.0 2016/12/30
-#
-# Usage:
-#   - 変更を確認する場合: hst.sh
-#   - Mercurial の管理下にファイルを追加する場合: hst.sh -a
-#   - ファイルの変更を確認する場合: hst.sh -d
-#   - ファイルの変更を戻す場合: hst.sh -r
-#
-# Description:
-#   Mercurial の hg コマンドを補助するスクリプト。
-#
-###########################################################################
 
-usage() {
-    script_name=`basename $0`
-    echo "Usage: $script_name     ## check status" 1>&2
-    echo "Usage: $script_name -a  ## add file" 1>&2
-    echo "Usage: $script_name -d  ## diff file" 1>&2
-    echo "Usage: $script_name -r  ## revert file" 1>&2
-    exit 3
+function usage() {
+  cat <<EOF 1>&2
+Description:
+  $(basename ${0}) は以下を実行するスクリプトである（カッコ書きは指定するオプション）。
+    1. プロジェクトの変更を確認する（オプションなし）
+	2. Mercurial の管理下にファイルを追加する（a オプション）
+	3. ファイルの変更を確認する（d オプション）
+	4. ファイルの変更を戻す（r オプション）
+  オプションを指定しない場合は "hg st" を実行する。
+  オプションを指定した場合はいずれも "hg st" した結果を FZF によりファイルを絞り込む仕組みになっている。
+
+Usage:
+  $(basename ${0}) [<options>]
+
+Options:
+  -a  FZF で絞り込んだファイルを Mercurial の管理下に追加する
+  -d  FZF で絞り込んだファイルの変更を確認する 
+  -h  print this
+  -r  FZF で絞り込んだファイルの変更を戻す
+  -x  dry-run モードで実行する
+EOF
+  exit 1
 }
 
 # `hg` のコマンドを格納する変数
