@@ -8,6 +8,16 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/01/30
+
+### [Mercurial] hst.sh スクリプトを修正
+
+dotfiles/etc/install/mercurial/hst.sh について以下を行った。
+
+  - FZF で絞り込んだファイルが存在しなかった場合の処理を実装
+  - dry-run モードで実行する x オプションを追加
+
+
 ## 2017/01/29
 
 ### [Mercurial] `hg push` コマンドの補助スクリプトを作成
