@@ -8,6 +8,29 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/01/29
+
+### [Mercurial] `hg push` コマンドの補助スクリプトを作成
+
+以下のスクリプトを作成。
+
+  - dotfiles/etc/install/mercurial/hpu.sh
+
+Mercurial の `hg update` コマンドを補助するスクリプト。
+デフォルトでは "hg push -b BRANCH_NAME" を実行するが、-a オプションを指定すると "hg push" を実行する。
+新規に作成したブランチを push する場合 "hg push --new-branch" とする必要があるが、そのオプションは自動で付与するようになっている。
+push するブランチは FZF により絞り込んで指定するため引数に指定しない。
+
+オプションは以下の通り。
+
+  - a  オプション: ブランチを指定せずに "hg push" を実行する
+  - x オプション: dry-run モードで実行する
+
+このスクリプトは以下のパスでシンボリックリンクとして作成される。
+
+  - ~/bin/hpu
+
+
 ## 2017/01/25
 
 ### [Vim] 「不可視文字の可視化」を無効に変更
