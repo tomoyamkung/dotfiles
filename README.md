@@ -8,6 +8,87 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/01/29
+
+### [Mercurial] `hg push` コマンドの補助スクリプトを作成
+
+以下のスクリプトを作成。
+
+  - dotfiles/etc/install/mercurial/hpu.sh
+
+Mercurial の `hg update` コマンドを補助するスクリプト。
+デフォルトでは "hg push -b BRANCH_NAME" を実行するが、-a オプションを指定すると "hg push" を実行する。
+新規に作成したブランチを push する場合 "hg push --new-branch" とする必要があるが、そのオプションは自動で付与するようになっている。
+push するブランチは FZF により絞り込んで指定するため引数に指定しない。
+
+オプションは以下の通り。
+
+  - a  オプション: ブランチを指定せずに "hg push" を実行する
+  - x オプション: dry-run モードで実行する
+
+このスクリプトは以下のパスでシンボリックリンクとして作成される。
+
+  - ~/bin/hpu
+
+
+## 2017/01/25
+
+### [Vim] 「不可視文字の可視化」を無効に変更
+
+不可視文字も表示するように dotfiles/vimrc に以下のように設定した。
+
+```
+" 不可視文字の可視化
+set list
+```
+
+これを無効となるようにファイルを修正した。
+
+
+## 2017/01/23
+
+### [Vim] dein.vim を使った syntastic プラグインのインストールに対応
+
+Vim の以下のプラグインをインストールする仕組みを実装。
+
+  - scrooloose/syntastic
+
+実装内容は以下を参照のこと。
+
+  - [Flake8 の Vim プラグイン組み込みを実装する · Issue #43 · tomoyamkung/dotfiles](https://github.com/tomoyamkung/dotfiles/issues/43)
+
+
+## 2017/01/17
+
+### [Mercurial] `hg update` コマンドの補助スクリプトを作成
+
+以下のスクリプトを作成。
+
+  - dotfiles/etc/install/mercurial/hup.sh
+
+Mercurial の `hg update` コマンドを補助するスクリプトで、ブランチを移動する用途での使用を想定している。
+移動したいブランチはオプションで指定せず FZF を使った絞り込みで指定するようになっている。
+
+オプションは以下の通り。
+
+  - x オプション: dry-run モードで実行する
+
+このスクリプトは以下のパスでシンボリックリンクとして作成される。
+
+  - ~/bin/hup
+
+
+## 2017/01/08
+
+### installed_command.sh を改修
+
+コマンドがシステムにインストールされているかを確認する以下の関数を改修した。
+
+  - dotfiles/etc/lib/installed_command.sh を改修
+
+`which` を使ってコマンドの存在確認を行っていたが、`type` を使うように変更。
+
+
 ## 2016/12/30
 
 ### [Mercurial] hg コマンドの補助スクリプトを作成

@@ -1,0 +1,57 @@
+#!/bin/bash -eu
+
+function usage() {
+  cat <<EOF 1>&2
+Description:
+  $(basename ${0}) は "hg" コマンドを補助するスクリプトのシンボリックリンクを作成する。
+  シンボリックリンクが作成されるスクリプトは以下のディレクトリに存在するものとする。
+    - etc/install/mercurial/*.sh
+  シンボリックリンクは ~/bin/ に作成する
+  シンボリックリンクの作成条件は以下の通り。
+    - システムに Mercurial がインストールされていること
+    - システムに FZF がインストールされていること
+
+Usage:
+  $(basename ${0})
+
+Options:
+  -h        print this
+  -x        dry run
+EOF
+  exit 1
+}
+
+# dotfiles 直下に移動する 
+cd `dirname $0`; cd ../../
+
+# ライブラリスクリプトを読み込む
+. etc/lib/installed_command.sh
+. etc/lib/create_dir.sh
+. etc/lib/dry_run.sh
+
+while getopts hx OPT
+do
+  case "$OPT" in
+    h) usage
+       ;;
+    x) enable_dryrun
+       ;;
+    \?) usage
+        ;;
+  esac
+done
+
+# 環境に `hg` がインストールされていれば終了
+installed_command hg || exit 1
+# 環境に `FZF` がインストールされていれば終了
+installed_command fzf || exit 2
+
+# ~/bin ディレクトリが存在しなければ作成する
+create_dir "~/bin"
+
+# ~/bin に hsh.sh のシンボリックリンクを作成する
+for path in `find etc/install/mercurial/ -name "*.sh"`
+do
+  ${dryrun} ln -sf `pwd`/${path} ~/bin/`echo ${path} | awk -F'/' '{print $4}' | sed -e 's/\.sh//'`
+done
+exit 0
