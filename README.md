@@ -10,6 +10,19 @@ $ source ~/.zshrc
 
 ## 2017/01/30
 
+### [Vim] バッファ切り替えに関する設定を追加
+
+- [vimrc に `set hidden` を追加する · Issue #51 · tomoyamkung/dotfiles](https://github.com/tomoyamkung/dotfiles/issues/51)
+
+ファイルが未保存の状態でもバッファが切り替えられるように dotfiles/vimrc に設定を追加した。
+設定内容は以下の通り。
+
+```
+" ファイルが未保存の場合でもバッファの切り替えを有効にする
+set hidden
+```
+
+
 ### [Mercurial] hst.sh スクリプトを修正
 
 dotfiles/etc/install/mercurial/hst.sh について以下を行った。

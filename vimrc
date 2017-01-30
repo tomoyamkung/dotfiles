@@ -53,3 +53,6 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set smartindent
+
+" ファイルが未保存の場合でもバッファの切り替えを有効にする
+set hidden
