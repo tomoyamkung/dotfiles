@@ -56,3 +56,26 @@ set smartindent
 
 " ファイルが未保存の場合でもバッファの切り替えを有効にする
 set hidden
+
+"unite.vim {{{
+" インサートモードで使用する（ファイルを絞り込んで特定するため）
+let g:unite_enable_start_insert = 1
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+" 最近使用したファイルリストの上限を 100 件とする
+let g:unite_source_file_mru_limit = 100
+let g:unite_source_history_yank_enable =1
+" ESCキーを2回押すと終了する  
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+" プレフィックスキーの変更（space + u に割り当て）
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+" バッファリストからファイルを選択する
+nnoremap <silent>[unite]b :<C-u>Unite buffer<CR>
+" バッファリストと最近使用したファイルリストからファイルを選択する
+nnoremap <silent>[unite]u :<C-u>Unite buffer file_mru<CR>
+" カレントディレクトリからファイルを選択する
+nnoremap <silent>[unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+"}}}
