@@ -8,6 +8,36 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/02/02
+
+### [Vim] バッファに関する設定を追加
+
+バッファに関する設定を追加した。
+設定内容は以下の通り。
+
+```
+"" Buffer {{{
+" プレフィックスキーの変更（space + b に割り当て）
+nnoremap [buffer] <Nop>
+nmap <Space>b [buffer]
+" バッファリストの１つ前のバッファを開く
+nnoremap <silent>[buffer]p :bprevious<CR>
+" バッファリストの１つ後ろのバッファを開く
+nnoremap <silent>[buffer]n :bnext<CR>
+" 直前に開いていたバッファを開く
+nnoremap <silent>[buffer]b :<C-u>b#<CR>
+" バッファリストを開く
+nnoremap <silent>[buffer]l :<C-u>ls<CR>
+" バッファやウィンドウの状態をファイルに保存する
+" 次回 Vim を起動するときは `vim -S ~/.vim.session` とすると復元された状態で Vim を起動することができる
+au VimLeave * mks! ~/.vim.session
+"}}}
+```
+
+加えて、NERDTree でファイル移動するよりも `:FZF` を使った絞り込みやバッファを活用したほうがより早く処理できるようになった。
+そのため NERDTree の初期起動を停止した。
+
+
 ## 2017/02/01
 
 ### [Vim] unite.vim に関する設定を追加
