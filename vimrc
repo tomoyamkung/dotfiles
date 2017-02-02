@@ -79,3 +79,21 @@ nnoremap <silent>[unite]u :<C-u>Unite buffer file_mru<CR>
 " カレントディレクトリからファイルを選択する
 nnoremap <silent>[unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "}}}
+
+
+"" Buffer {{{
+" プレフィックスキーの変更（space + b に割り当て）
+nnoremap [buffer] <Nop>
+nmap <Space>b [buffer]
+" バッファリストの１つ前のバッファを開く
+nnoremap <silent>[buffer]p :bprevious<CR>
+" バッファリストの１つ後ろのバッファを開く
+nnoremap <silent>[buffer]n :bnext<CR>
+" 直前に開いていたバッファを開く
+nnoremap <silent>[buffer]b :<C-u>b#<CR>
+" バッファリストを開く
+nnoremap <silent>[buffer]l :<C-u>ls<CR>
+" バッファやウィンドウの状態をファイルに保存する
+" 次回 Vim を起動するときは `vim -S ~/.vim.session` とすると復元された状態で Vim を起動することができる
+au VimLeave * mks! ~/.vim.session
+"}}}
