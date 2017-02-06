@@ -11,6 +11,31 @@ $ source ~/.zshrc
 
 ## 2017/02/06
 
+### [Vim] vimgrep による検索結果を quickfix-window で表示する設定を追加
+
+dotfiles/vimrc に以下の設定を追加。
+
+```
+"vimgrep + quickfix-window {{{
+" :vim[grep] での検索結果を自動的に quickfix-window で表示する
+autocmd QuickFixCmdPost *grep* cwindow
+" プレフィックスキーの変更（space + g に割り当て）
+nnoremap [vimgrepquickfix] <Nop>
+nmap <Space>g [vimgrepquickfix]
+" 次の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]n :cnext<CR>
+" 前の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]p :cprevious<CR>
+" 先頭の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]N :<C-u>cfirst<CR>
+" 末尾の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]P :<C-u>clast<CR>
+"}}}
+```
+
+この設定で `vimgrep` した結果が quickfix-window に表示されるようになる。
+
+
 ### [zsh] Vim に関する alias を追加
 
 ウィンドウやバッファを前回起動時の状態に復元して Vim を起動したい場合の alias を dotfiles/zshrc に追加。
