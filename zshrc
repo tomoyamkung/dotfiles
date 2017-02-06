@@ -74,3 +74,8 @@ if [ -d ~/bin ]; then
     done
 fi
 
+
+## コマンドラインでもコメントを有効にする
+setopt interactivecomments
+
+
