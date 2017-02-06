@@ -63,6 +63,8 @@ compinit
 
 
 ## alias
+# ウィンドウやバッファを前回起動時の状態に復元して Vim を起動したい場合
+alias vis="vim -S ~/.vim.session"
 
 
 ## ~/bin
