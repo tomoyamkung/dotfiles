@@ -80,7 +80,6 @@ nnoremap <silent>[unite]u :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent>[unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "}}}
 
-
 "" Buffer {{{
 " プレフィックスキーの変更（space + b に割り当て）
 nnoremap [buffer] <Nop>
@@ -96,4 +95,20 @@ nnoremap <silent>[buffer]l :<C-u>ls<CR>
 " バッファやウィンドウの状態をファイルに保存する
 " 次回 Vim を起動するときは `vim -S ~/.vim.session` とすると復元された状態で Vim を起動することができる
 au VimLeave * mks! ~/.vim.session
+"}}}
+
+"vimgrep + quickfix-window {{{
+" :vim[grep] での検索結果を自動的に quickfix-window で表示する
+autocmd QuickFixCmdPost *grep* cwindow
+" プレフィックスキーの変更（space + g に割り当て）
+nnoremap [vimgrepquickfix] <Nop>
+nmap <Space>g [vimgrepquickfix]
+" 次の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]n :cnext<CR>
+" 前の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]p :cprevious<CR>
+" 先頭の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]N :<C-u>cfirst<CR>
+" 末尾の検索結果に移動する
+nnoremap <silent>[vimgrepquickfix]P :<C-u>clast<CR>
 "}}}
