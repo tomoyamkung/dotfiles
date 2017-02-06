@@ -2,10 +2,12 @@
 ## LANG
 export LANG=ja_JP.UTF8
 
+
 ## set prompt
 PROMPT='[%n@%m %c]# '
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
+
 
 ## Command history configuration
 HISTFILE=~/.zsh_history
@@ -18,8 +20,6 @@ setopt HIST_REDUCE_BLANKS  # 余分な空白は詰めて記録
 setopt HIST_NO_STORE  # histroy コマンドは記録しない
 setopt SHARE_HISTORY  # share command history data
 
-## Keybind configuration
-bindkey -e
 
 ## Historical backward/forward search with linehead string binded to ^P/^N
 autoload history-search-end
@@ -27,6 +27,11 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
+
+
+## Keybind configuration
+bindkey -e
+
 
 ## extended_glob
 setopt extended_glob
@@ -68,4 +73,9 @@ if [ -d ~/bin ]; then
         PATH=$PATH:~/bin/$d
     done
 fi
+
+
+## コマンドラインでもコメントを有効にする
+setopt interactivecomments
+
 
