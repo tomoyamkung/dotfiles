@@ -4,7 +4,12 @@ export LANG=ja_JP.UTF8
 
 
 ## set prompt
-PROMPT='[%n@%m %c]# '
+# 左プロンプトに表示する値。初期値は一般ユーザ向けの設定
+prompt_value='[%n@%m %c]$ '
+if [ ${UID} -eq 0 ]; then  # ログインユーザが root の場合の設定
+  prompt_value='[%n@%m %c]# '
+fi
+PROMPT=${prompt_value}  # 上記で設定した値を左プロンプトに表示する
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
