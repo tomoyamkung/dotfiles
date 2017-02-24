@@ -95,6 +95,8 @@ nnoremap <silent>[buffer]l :<C-u>ls<CR>
 " バッファやウィンドウの状態をファイルに保存する
 " 次回 Vim を起動するときは `vim -S ~/.vim.session` とすると復元された状態で Vim を起動することができる
 au VimLeave * mks! ~/.vim.session
+" バッファ番号での移動を簡略化する（`ls` でバッファリストを表示 → `b NUM` で移動） 
+nnoremap <silent>[buffer]m :ls<CR>:buf 
 "}}}
 
 "vimgrep + quickfix-window {{{
