@@ -8,6 +8,19 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/02/24
+
+### [Vim] バッファ番号での移動を簡略化する設定を追加
+
+- [vimrc のバッファ関連の設定に追加する · Issue #60](https://github.com/tomoyamkung/dotfiles/issues/60)
+
+dotfiles/vimrc に以下の設定を追加。
+
+```
+" バッファ番号での移動を簡略化する（`ls` でバッファリストを表示 → `b NUM` で移動） 
+nnoremap <silent>[buffer]m :ls<CR>:buf
+```
+
 
 ## 2017/02/08
 
