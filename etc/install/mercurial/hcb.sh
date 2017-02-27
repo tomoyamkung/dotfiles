@@ -42,7 +42,7 @@ fi
 branch_name=$(echo ${branch_name} | awk '{print $1}')
 
 # `hg update` を実行する
-"${dryrun}" hg update "${branch_name}"
+${dryrun} hg update "${branch_name}"
 # 指定したブランチを閉鎖する
-"${dryrun}" hg commit --close-branch
+${dryrun} hg commit --close-branch -m "close branch ${branch_name}"
 exit 0
