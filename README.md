@@ -8,6 +8,36 @@ $ sh deploy.sh
 $ source ~/.zshrc
 ```
 
+## 2017/02/27
+
+### [Mercurial] ブランチを閉鎖するスクリプトを作成
+
+- [`fzf` を使って絞り込んだブランチを閉鎖するスクリプト `hcb` を作成する · Issue #46 ](https://github.com/tomoyamkung/dotfiles/issues/46)
+
+以下のスクリプトを作成。
+
+  - dotfiles/etc/install/mercurial/hch.sh
+
+"hg commit --close-branch" を実行するスクリプト。  
+ブランチを閉鎖する際のコミットメッセージはデフォルトで以下の形式となっている。  
+    - close branch BRANCH_NAME
+コミットメッセージを変更する場合は -m オプションを指定する。  
+    - コミットメッセージが空白を含む場合はクォートで囲むこと
+ブランチを閉鎖後に `hg push` を実行したい場合は -p オプションを指定する。  
+
+オプションは以下の通り。
+
+    -h  print this
+    -m  ブランチを閉鎖する際のコミットメッセージを指定する
+    -p  ブランチを閉鎖後に `hg push` を実行する
+    -x  dry-run モードで実行する
+
+
+このスクリプトは以下のパスでシンボリックリンクとして作成される。
+
+  - ~/bin/hcb
+
+
 ## 2017/02/24
 
 ### [Vim] バッファ番号での移動を簡略化する設定を追加
