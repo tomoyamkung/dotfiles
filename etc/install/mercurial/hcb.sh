@@ -12,25 +12,31 @@ Description:
     - close branch BRANCH_NAME
   コミットメッセージを変更する場合は -m オプションを指定する。
     - コミットメッセージが空白を含む場合はクォートで囲むこと
+  ブランチを閉鎖後に `hg push` を実行したい場合は -p オプションを指定する。
 
 Usage:
-  $(basename ${0}) [-h] [-m commit_message] [-x]
+  $(basename ${0}) [-h] [-m commit_message] [-p] [-x]
 
 Options:
   -h  print this
   -m  ブランチを閉鎖する際のコミットメッセージを指定する
+  -p  ブランチを閉鎖後に `hg push` を実行する
   -x  dry-run モードで実行する
 EOF
 
   exit 1
 }
 
-while getopts hm:x OPT
+
+while getopts hm:px OPT
 do
   case "$OPT" in
     h) usage
        ;;
     m) commit_message="$OPTARG" ;;
+	p) is_push=true ;;
+	   # ブランチを閉鎖後に `push` するかを制御する識別子
+       # この変数に値が格納されている場合は `push` する
     x) enable_dryrun
        ;;
     \?) usage
@@ -56,4 +62,9 @@ fi
 ${dryrun} hg update "${branch_name}"
 # 指定したブランチを閉鎖する
 ${dryrun} hg commit --close-branch -m "${commit_message}"
+# -p オプションが指定されたので `push` する
+if [[ ! -z "${commit_message}" ]]; then
+  ${dryrun} hg push
+fi
+
 exit 0
