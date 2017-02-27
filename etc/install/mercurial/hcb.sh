@@ -8,23 +8,29 @@ function usage() {
 
 Description:
   $(basename ${0}) は "hg commit --close-branch" を実行するスクリプトである。
+  ブランチを閉鎖する際のコミットメッセージはデフォルトで以下の形式となっている。
+    - close branch BRANCH_NAME
+  コミットメッセージを変更する場合は -m オプションを指定する。
+    - コミットメッセージが空白を含む場合はクォートで囲むこと
 
 Usage:
-  $(basename ${0}) [<options>]
+  $(basename ${0}) [-h] [-m commit_message] [-x]
 
 Options:
   -h  print this
+  -m  ブランチを閉鎖する際のコミットメッセージを指定する
   -x  dry-run モードで実行する
 EOF
 
   exit 1
 }
 
-while getopts hx OPT
+while getopts hm:x OPT
 do
   case "$OPT" in
     h) usage
        ;;
+    m) commit_message="$OPTARG" ;;
     x) enable_dryrun
        ;;
     \?) usage
@@ -41,8 +47,13 @@ fi
 # 不要な文字を取り除く
 branch_name=$(echo ${branch_name} | awk '{print $1}')
 
+# コミットメッセージが未設定の場合はデフォルトを設定する
+if [[ -z "${commit_message}" ]]; then
+  commit_message="close branch ${branch_name}"
+fi
+
 # `hg update` を実行する
 ${dryrun} hg update "${branch_name}"
 # 指定したブランチを閉鎖する
-${dryrun} hg commit --close-branch -m "close branch ${branch_name}"
+${dryrun} hg commit --close-branch -m "${commit_message}"
 exit 0
